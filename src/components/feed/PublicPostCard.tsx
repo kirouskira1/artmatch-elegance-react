@@ -6,7 +6,7 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useAuth } from '@/hooks/useAuth';
 import { PublicPost } from '@/lib/mockData';
-import { Badge } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 interface PublicPostCardProps {
   post: PublicPost;
