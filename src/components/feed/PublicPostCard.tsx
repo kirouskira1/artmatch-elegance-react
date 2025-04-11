@@ -5,7 +5,7 @@ import { Heart, MessageSquare, Share2 } from "lucide-react";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useAuth } from '@/hooks/useAuth';
-import { PublicPost } from '@/lib/mockData';
+import { PublicPost } from '@/lib/extendedMockData';
 import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 

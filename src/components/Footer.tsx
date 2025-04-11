@@ -5,6 +5,7 @@ import { Instagram, Linkedin, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { contactAvatar } from "@/lib/extendedMockData";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -116,8 +117,8 @@ const Footer = () => {
             <h3 className="text-lg font-bold mb-4">Entre em Contato</h3>
             <div className="flex items-center gap-3 mb-4">
               <Avatar>
-                <AvatarImage src="/images/contact-avatar.jpg" alt="Contato" />
-                <AvatarFallback>CT</AvatarFallback>
+                <AvatarImage src={contactAvatar} alt="Adriano Rodrigues" />
+                <AvatarFallback>AR</AvatarFallback>
               </Avatar>
               <div>
                 <p className="font-medium">Adriano Rodrigues</p>
