@@ -1,9 +1,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Instagram, Twitter, Linkedin, Send } from "lucide-react";
+import { Instagram, Linkedin, Send } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
@@ -34,28 +35,18 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a 
-                href="#" 
-                className="w-8 h-8 rounded-full bg-artmatch-purple/10 flex items-center justify-center text-artmatch-purple hover:bg-artmatch-purple hover:text-white transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook size={18} />
-              </a>
-              <a 
-                href="#" 
+                href="https://www.instagram.com/tantofazdjow?igsh=N2JucXVlY3R2b290" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full bg-artmatch-purple/10 flex items-center justify-center text-artmatch-purple hover:bg-artmatch-purple hover:text-white transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram size={18} />
               </a>
               <a 
-                href="#" 
-                className="w-8 h-8 rounded-full bg-artmatch-purple/10 flex items-center justify-center text-artmatch-purple hover:bg-artmatch-purple hover:text-white transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter size={18} />
-              </a>
-              <a 
-                href="#" 
+                href="https://www.linkedin.com/in/adriano-rodrigues-ads?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-8 h-8 rounded-full bg-artmatch-purple/10 flex items-center justify-center text-artmatch-purple hover:bg-artmatch-purple hover:text-white transition-colors"
                 aria-label="LinkedIn"
               >
@@ -122,10 +113,17 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-lg font-bold mb-4">Newsletter</h3>
-            <p className="text-gray-600 mb-4">
-              Inscreva-se para receber atualizações sobre oportunidades artísticas.
-            </p>
+            <h3 className="text-lg font-bold mb-4">Entre em Contato</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <Avatar>
+                <AvatarImage src="/images/contact-avatar.jpg" alt="Contato" />
+                <AvatarFallback>CT</AvatarFallback>
+              </Avatar>
+              <div>
+                <p className="font-medium">Adriano Rodrigues</p>
+                <p className="text-sm text-muted-foreground">Suporte ao Cliente</p>
+              </div>
+            </div>
             <form onSubmit={handleSubmit} className="flex">
               <div className="flex-grow">
                 <Input

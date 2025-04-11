@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { useAuth } from '@/hooks/useAuth';
 import { PublicPost } from '@/lib/mockData';
 import { Badge } from '@/components/ui/badge';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 interface PublicPostCardProps {
   post: PublicPost;
@@ -29,26 +30,31 @@ const PublicPostCard: React.FC<PublicPostCardProps> = ({ post }) => {
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-        <div className="relative w-full pt-[100%] overflow-hidden bg-muted">
+      <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
+        <div className="p-4 flex items-center gap-3">
+          <Avatar>
+            <AvatarImage src={post.artist.avatarUrl} alt={post.artist.name} />
+            <AvatarFallback>{post.artist.name.charAt(0)}</AvatarFallback>
+          </Avatar>
+          <div>
+            <p className="font-medium">{post.artist.name}</p>
+            <Badge variant="outline" className="text-xs bg-artmatch-purple/10 text-artmatch-purple">
+              {post.artist.region}
+            </Badge>
+          </div>
+        </div>
+        
+        <div className="relative w-full aspect-[4/3] overflow-hidden bg-muted">
           <img
             src={post.imageUrl}
             alt={post.caption}
-            className="absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
           />
         </div>
         
-        <CardContent className="p-4 flex-grow">
-          <div className="flex items-center justify-between mb-2">
-            <div className="flex items-center gap-2">
-              <span className="font-medium text-sm">{post.artist.name}</span>
-              <Badge variant="outline" className="text-xs bg-artmatch-purple/10 text-artmatch-purple">
-                {post.artist.region}
-              </Badge>
-            </div>
-          </div>
-          <p className="text-sm text-muted-foreground line-clamp-2">{post.caption}</p>
+        <CardContent className="p-4">
+          <p className="text-sm text-muted-foreground">{post.caption}</p>
         </CardContent>
         
         <CardFooter className="p-4 pt-0 flex justify-between items-center">

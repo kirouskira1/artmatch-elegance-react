@@ -2,9 +2,25 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
+import { useAuth } from "@/hooks/useAuth";
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious
+} from "@/components/ui/carousel";
+
+const artImages = [
+  "/images/art-gallery-1080p.jpg",
+  "/images/sculpture-1080p.jpg",
+  "/images/painting-1080p.jpg",
+  "/images/ceramic-art-1080p.jpg",
+];
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { setShowAuthModal } = useAuth();
 
   useEffect(() => {
     setIsVisible(true);
@@ -32,11 +48,18 @@ const HeroSection = () => {
               Descubra oportunidades perfeitas para seu talento e leve sua carreira artística para o próximo nível.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button className="btn-primary">
+              <Button 
+                className="btn-primary"
+                onClick={() => setShowAuthModal(true)}
+              >
                 Cadastre-se Agora
               </Button>
-              <Button variant="outline" className="btn-secondary">
-                Saiba Mais
+              <Button 
+                variant="outline" 
+                className="btn-secondary"
+                onClick={() => setShowAuthModal(true)}
+              >
+                Entrar no Site
               </Button>
             </div>
           </div>
@@ -45,21 +68,23 @@ const HeroSection = () => {
             "relative transition-all duration-700 delay-300",
             isVisible ? "opacity-100" : "opacity-0 translate-y-10"
           )}>
-            <div className="relative w-full aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-r from-artmatch-purple to-artmatch-blue rounded-full opacity-20 blur-3xl animate-pulse" />
-              <div className="relative w-full h-full flex items-center justify-center">
-                <div className="bg-gradient-to-br from-white to-gray-100 rounded-2xl shadow-xl w-5/6 aspect-[4/3] p-4 rotate-3 animate-float">
-                  <div className="w-full h-full bg-gradient-to-r from-artmatch-purple/30 to-artmatch-blue/30 rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-white flex items-center justify-center">
-                        <span className="text-2xl">🎨</span>
-                      </div>
-                      <p className="font-medium text-white text-shadow">Seu Próximo Projeto</p>
+            <Carousel className="w-full max-w-md mx-auto">
+              <CarouselContent>
+                {artImages.map((image, index) => (
+                  <CarouselItem key={index} className="pl-0">
+                    <div className="overflow-hidden rounded-2xl shadow-xl">
+                      <img 
+                        src={image} 
+                        alt={`Arte ${index + 1}`} 
+                        className="w-full h-[300px] object-cover"
+                      />
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="left-2" />
+              <CarouselNext className="right-2" />
+            </Carousel>
           </div>
         </div>
       </div>
