@@ -52,9 +52,10 @@ const PublicPostCard: React.FC<PublicPostCardProps> = ({ post }) => {
             alt={post.caption}
             className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
+            onLoad={() => console.log(`Successfully loaded image for post: ${post.id}`)}
             onError={(e) => {
               console.error(`Failed to load image: ${post.imageUrl}`);
-              e.currentTarget.src = "/placeholder.svg";
+              // No need to set fallback as we're already using placeholder.svg
             }}
           />
         </div>

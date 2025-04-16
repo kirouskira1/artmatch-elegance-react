@@ -13,7 +13,7 @@ export const FeedGrid = () => {
       try {
         // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 1000));
-        console.log('Mock posts:', mockPosts); // Debug
+        console.log('Mock posts loaded, count:', mockPosts.length); 
         setPosts(mockPosts);
       } catch (error) {
         console.error('Error fetching posts:', error);
