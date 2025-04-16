@@ -23,6 +23,8 @@ const PublicPostCard: React.FC<PublicPostCardProps> = ({ post }) => {
     }
   };
 
+  console.log('Rendering post:', post.id, 'with image:', post.imageUrl, 'and avatar:', post.artist.avatarUrl);
+
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
@@ -50,6 +52,10 @@ const PublicPostCard: React.FC<PublicPostCardProps> = ({ post }) => {
             alt={post.caption}
             className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
             loading="lazy"
+            onError={(e) => {
+              console.error(`Failed to load image: ${post.imageUrl}`);
+              e.currentTarget.src = "/placeholder.svg";
+            }}
           />
         </div>
         

@@ -12,7 +12,8 @@ export const FeedGrid = () => {
     const fetchPosts = async () => {
       try {
         // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        console.log('Mock posts:', mockPosts); // Debug
         setPosts(mockPosts);
       } catch (error) {
         console.error('Error fetching posts:', error);
@@ -25,7 +26,7 @@ export const FeedGrid = () => {
   }, []);
 
   return (
-    <div className="flex flex-col space-y-6 max-w-2xl mx-auto">
+    <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
       {loading 
         ? Array.from({ length: 4 }).map((_, index) => (
             <div key={`skeleton-${index}`} className="flex flex-col gap-2">
