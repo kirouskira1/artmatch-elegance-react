@@ -3,20 +3,6 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
-import { 
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious
-} from "@/components/ui/carousel";
-
-const artImages = [
-  "/images/art-gallery-1080p.jpg",
-  "/images/sculpture-1080p.jpg",
-  "/images/painting-1080p.jpg",
-  "/images/ceramic-art-1080p.jpg",
-];
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -68,23 +54,13 @@ const HeroSection = () => {
             "relative transition-all duration-700 delay-300",
             isVisible ? "opacity-100" : "opacity-0 translate-y-10"
           )}>
-            <Carousel className="w-full max-w-md mx-auto">
-              <CarouselContent>
-                {artImages.map((image, index) => (
-                  <CarouselItem key={index} className="pl-0">
-                    <div className="overflow-hidden rounded-2xl shadow-xl">
-                      <img 
-                        src={image} 
-                        alt={`Arte ${index + 1}`} 
-                        className="w-full h-[300px] object-cover"
-                      />
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="left-2" />
-              <CarouselNext className="right-2" />
-            </Carousel>
+            <div className="overflow-hidden rounded-2xl shadow-xl">
+              <img 
+                src="/images/art-gallery-1080p.jpg" 
+                alt="Galeria de Arte" 
+                className="w-full h-[300px] object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
