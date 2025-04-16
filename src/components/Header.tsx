@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -54,11 +53,7 @@ const Header = () => {
           </a>
         </nav>
         
-        <div className="hidden md:block">
-          <Button className="btn-primary">
-            Cadastre-se Agora
-          </Button>
-        </div>
+        {/* Remove the desktop signup button */}
         
         {/* Mobile Menu Button */}
         <div className="block md:hidden">
@@ -116,6 +111,7 @@ const Header = () => {
           >
             Contato
           </a>
+          {/* Keep the mobile button to maintain mobile navigation consistency */}
           <Button className="btn-primary w-full">
             Cadastre-se Agora
           </Button>

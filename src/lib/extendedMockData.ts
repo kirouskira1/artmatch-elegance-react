@@ -20,20 +20,30 @@ export interface PublicPost {
   };
 }
 
-// Extend the original posts with additional fields
-export const mockPosts: PublicPost[] = originalMockPosts.map(post => ({
+// Use existing available images for the posts
+export const mockPosts: PublicPost[] = originalMockPosts.map((post, index) => ({
   id: post.id,
-  // Using placeholder.svg which is available in the project
+  // Using placeholder.svg which is guaranteed to exist
   imageUrl: "/placeholder.svg",
   caption: post.caption,
   artist: {
     name: post.artist.name,
     region: post.artist.region,
-    // Using the contact avatar which we know exists
+    // Using avatar that we know exists in the project
     avatarUrl: "/lovable-uploads/7ba80346-7bd8-4792-8b24-4fd7a8756ebc.png"
   },
   stats: post.stats
 }));
+
+// Add descriptive titles for the editals based on northeastern art forms
+export const editalDescriptions = [
+  "Cerâmica Nordestina: Tradições em Barro",
+  "Xilogravura: Arte da Literatura de Cordel",
+  "Dança Regional: Expressões Corporais do Sertão",
+  "Música Folclórica: Ritmos do Nordeste",
+  "Arte Visual: Cores Vibrantes do Semiárido",
+  "Teatro Popular: Culturas Tradicionais"
+];
 
 // Add the contact avatar for the footer
 export const contactAvatar = "/lovable-uploads/7ba80346-7bd8-4792-8b24-4fd7a8756ebc.png";

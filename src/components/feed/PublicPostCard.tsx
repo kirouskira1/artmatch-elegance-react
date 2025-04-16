@@ -32,21 +32,21 @@ const PublicPostCard: React.FC<PublicPostCardProps> = ({ post }) => {
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
-      <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col">
-        <div className="p-4 flex items-center gap-3">
-          <Avatar>
+      <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+        <div className="p-3 flex items-center gap-2">
+          <Avatar className="h-8 w-8">
             <AvatarImage src={post.artist.avatarUrl} alt={post.artist.name} />
             <AvatarFallback>{post.artist.name.charAt(0)}</AvatarFallback>
           </Avatar>
-          <div>
-            <p className="font-medium">{post.artist.name}</p>
+          <div className="flex flex-col">
+            <p className="font-medium text-sm truncate">{post.artist.name}</p>
             <Badge variant="outline" className="text-xs bg-artmatch-purple/10 text-artmatch-purple">
               {post.artist.region}
             </Badge>
           </div>
         </div>
         
-        <div className="relative w-full aspect-[4/3] overflow-hidden bg-muted">
+        <div className="relative w-full h-[160px] overflow-hidden bg-muted">
           <img
             src={post.imageUrl}
             alt={post.caption}
@@ -55,17 +55,19 @@ const PublicPostCard: React.FC<PublicPostCardProps> = ({ post }) => {
             onLoad={() => console.log(`Successfully loaded image for post: ${post.id}`)}
             onError={(e) => {
               console.error(`Failed to load image: ${post.imageUrl}`);
-              // No need to set fallback as we're already using placeholder.svg
             }}
           />
         </div>
         
-        <CardContent className="p-4">
-          <p className="text-sm text-muted-foreground">{post.caption}</p>
+        <CardContent className="p-3 flex-grow">
+          <h3 className="font-medium text-sm line-clamp-2">{post.caption}</h3>
+          <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+            Edital aberto para artistas do {post.artist.region}
+          </p>
         </CardContent>
         
-        <CardFooter className="p-4 pt-0 flex justify-between items-center">
-          <div className="flex items-center gap-3">
+        <CardFooter className="p-3 pt-0 flex justify-between items-center">
+          <div className="flex items-center gap-2">
             <Button 
               variant="ghost" 
               size="sm" 

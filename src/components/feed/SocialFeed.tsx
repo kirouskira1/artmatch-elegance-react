@@ -8,11 +8,11 @@ const SocialFeed: React.FC = () => {
   const { user, setShowAuthModal } = useAuth();
 
   return (
-    <section className="py-12 px-4 md:px-6 bg-gray-50">
+    <section className="py-12 px-4 md:px-6 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
           <div>
-            <h2 className="text-3xl font-bold text-artmatch-purple">Editais em destaque</h2>
+            <h2 className="text-3xl font-bold heading-gradient">Editais em destaque</h2>
             <p className="text-muted-foreground mt-2">
               Descubra oportunidades para artistas do Nordeste brasileiro
             </p>
@@ -39,7 +39,9 @@ const SocialFeed: React.FC = () => {
           </div>
         </div>
         
-        <FeedGrid />
+        <div className="mt-8 relative">
+          <FeedGrid />
+        </div>
       </div>
     </section>
   );
