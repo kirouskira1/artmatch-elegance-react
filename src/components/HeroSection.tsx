@@ -22,9 +22,9 @@ const HeroSection = () => {
       <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-artmatch-blue/10 to-transparent rounded-tr-full -z-10" />
       
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-1 gap-12 items-center">
           <div className={cn(
-            "space-y-6 transition-all duration-700 delay-100",
+            "space-y-6 transition-all duration-700 delay-100 text-center",
             isVisible ? "opacity-100" : "opacity-0 translate-y-10"
           )}>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold heading-gradient leading-tight">
@@ -33,7 +33,7 @@ const HeroSection = () => {
             <p className="text-lg md:text-xl text-gray-600">
               Descubra oportunidades perfeitas para seu talento e leve sua carreira artística para o próximo nível.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <Button 
                 className="btn-primary"
                 onClick={() => setShowAuthModal(true)}
@@ -47,19 +47,6 @@ const HeroSection = () => {
               >
                 Entrar no Site
               </Button>
-            </div>
-          </div>
-          
-          <div className={cn(
-            "relative transition-all duration-700 delay-300",
-            isVisible ? "opacity-100" : "opacity-0 translate-y-10"
-          )}>
-            <div className="overflow-hidden rounded-2xl shadow-xl">
-              <img 
-                src="/images/art-gallery-1080p.jpg" 
-                alt="Galeria de Arte" 
-                className="w-full h-[300px] object-cover"
-              />
             </div>
           </div>
         </div>
